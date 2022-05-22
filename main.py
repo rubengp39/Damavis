@@ -1,12 +1,9 @@
-from asyncio.windows_events import NULL
-
-
 board = [4,3] # X, Y
 snake = [[2,2],[3,2],[3,1],[3,0],[2,0],[1,0],[0,0]] # snake[0] = head --- Pop last and add new position to head.
 depth = 3
 
 # Assuming that movement will only be one in [L,R,U,D].
-def checkCollision(board, snake, movement):
+def nextState(board, snake, movement):
     if(movement == "L"):
         if(snake[0][0] > 0):
             snakeNextX = snake[0][0] + (-1)
@@ -42,13 +39,17 @@ def checkCollision(board, snake, movement):
             if((snakeNext not in snake)):
                 snake.insert(0, snakeNext)
                 return snake
-    return NULL
+    return None
 
 
 def numberOfAvailableDifferentPaths(board, snake, depth):
     solution = 0
     snakeHead = snake[0]
 
+    # Check Last depth possibilities recursively.
+    
+
     return solution
 
-print(checkCollision(board, snake, "U"))
+print(nextState(board, snake, "U"))
+
